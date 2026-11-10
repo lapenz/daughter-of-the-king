@@ -9,7 +9,7 @@ export const en: Content = {
   brand: "Daughter of the King",
   langSwitch: { label: "Português", href: "/pt" },
   images: {
-    window: "A woman looking out of a window, deep in thought",
+    window: "A woman sitting alone, seen from behind, looking at a misty horizon",
     crowning: "Jesus placing a crown on the head of a woman in armor",
   },
   hero: {
@@ -24,7 +24,14 @@ export const en: Content = {
   identify: {
     eyebrow: "Does this sound like you?",
     title: "That feeling of having lost yourself.",
-    body: "As if, at some point, you stopped existing just so you could hold everything together.",
+    lines: [
+      "You look in the mirror and no longer recognize who is there.",
+      "You don't know anymore what you like, what you feel or what you want.",
+      "When something goes wrong, the conclusion is always the same: the problem is me.",
+      "And, little by little, it gets harder to remember who you were before all of this.",
+    ],
+    closing:
+      "If you see yourself in these words, know this: it is not the end of your story.",
   },
   patterns: {
     eyebrow: "Discover what lies behind your patterns",

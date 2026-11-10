@@ -9,7 +9,7 @@ export const pt: Content = {
   brand: "Filha do Rei",
   langSwitch: { label: "English", href: "/en" },
   images: {
-    window: "Mulher olhando pela janela, pensativa",
+    window: "Mulher sentada sozinha, de costas, olhando um horizonte coberto de névoa",
     crowning: "Jesus coloca uma coroa sobre a cabeça de uma mulher de armadura",
   },
   hero: {
@@ -24,7 +24,14 @@ export const pt: Content = {
   identify: {
     eyebrow: "Você se identifica?",
     title: "Aquela sensação de ter se perdido de si mesma.",
-    body: "Como se, em algum momento, você tivesse deixado de existir para conseguir dar conta de tudo.",
+    lines: [
+      "Você se olha no espelho e já não reconhece quem está ali.",
+      "Não sabe mais do que gosta, o que sente ou o que quer.",
+      "Quando algo dá errado, a conclusão é sempre a mesma: o problema sou eu.",
+      "E, aos poucos, fica cada vez mais difícil lembrar quem você era antes de tudo isso.",
+    ],
+    closing:
+      "Se você se reconhece nessas palavras, saiba: isso não é o fim da sua história.",
   },
   patterns: {
     eyebrow: "Descubra o que está por trás dos seus padrões",

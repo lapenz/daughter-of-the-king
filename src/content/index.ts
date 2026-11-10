@@ -56,7 +56,8 @@ export type Content = {
   identify: {
     eyebrow: string;
     title: string;
-    body: string;
+    lines: string[];
+    closing: string;
   };
   patterns: {
     eyebrow: string;

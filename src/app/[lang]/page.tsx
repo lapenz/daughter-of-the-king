@@ -10,7 +10,7 @@ import {
   LineIcon,
 } from "@/components/ui";
 import coroacao from "../../../public/images/coroacao.jpg";
-import janela from "../../../public/images/janela.jpg";
+import perdida from "../../../public/images/perdida.jpg";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -79,7 +79,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <section className="texture-light bg-cream px-4 py-24 sm:px-8 sm:py-32">
         <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2 md:gap-16">
           <FramedImage
-            src={janela}
+            src={perdida}
             alt={c.images.window}
             className="mx-auto w-full max-w-sm md:max-w-none"
             imageClassName="aspect-[4/5]"
@@ -90,8 +90,22 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <h2 className="mt-6 font-serif text-4xl font-medium leading-tight text-plum-900 sm:text-5xl lg:text-6xl">
               {c.identify.title}
             </h2>
-            <p className="mt-6 text-lg leading-relaxed text-ink-soft">
-              {c.identify.body}
+            <ul className="mt-8 space-y-4 text-left">
+              {c.identify.lines.map((line) => (
+                <li
+                  key={line}
+                  className="flex gap-4 text-lg leading-relaxed text-ink-soft"
+                >
+                  <span
+                    className="mt-3 size-1.5 shrink-0 rotate-45 bg-gold"
+                    aria-hidden="true"
+                  />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-8 font-serif text-2xl italic leading-snug text-plum-800">
+              {c.identify.closing}
             </p>
           </div>
         </div>

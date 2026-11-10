@@ -6,7 +6,7 @@ Sob a Licença Unsplash (uso comercial gratuito, sem atribuição obrigatória).
 
 | Arquivo | Onde aparece | Foto |
 | --- | --- | --- |
-| janela.jpg | "Você se identifica?" | https://unsplash.com/photos/VE6m3nZALF4 |
+| perdida.jpg | "Você se identifica?" | https://unsplash.com/photos/RTVIvk6-nNA |
 
 ## Imagens enviadas pela Monique
 
