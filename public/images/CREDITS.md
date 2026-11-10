@@ -12,6 +12,4 @@ Sob a Licença Unsplash (uso comercial gratuito, sem atribuição obrigatória).
 
 | Arquivo | Onde aparece |
 | --- | --- |
-| coroacao.jpg | Abertura |
-| batalha.jpg | "A jornada" |
-| capela.jpg | Convite final |
+| coroacao.jpg | Fundo da entrada |

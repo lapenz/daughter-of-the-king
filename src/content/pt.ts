@@ -11,14 +11,12 @@ export const pt: Content = {
   images: {
     window: "Mulher olhando pela janela, pensativa",
     crowning: "Jesus coloca uma coroa sobre a cabeça de uma mulher de armadura",
-    battle: "Uma mulher de armadura ajoelhada, de mãos dadas com Jesus no campo de batalha",
-    chapel: "Uma mulher de armadura ajoelhada em oração numa capela, com Jesus ao seu lado",
   },
   hero: {
     eyebrow: "Mentoria · Cura emocional, identidade e fé · Monique Della",
     title: "Filha do Rei",
     subtitle:
-      "O reencontro com a mulher que você era antes de aprender a sobreviver.",
+      "Tire a armadura da sobrevivência e receba a coroa da sua identidade.",
     body: "Uma jornada cristã de autoconhecimento, reconstrução da identidade e novos começos para mulheres que desejam parar de repetir padrões e começar a viver com propósito.",
     cta: "Quero escrever uma nova história",
     note: "30 dias para a transformação",

@@ -9,8 +9,6 @@ import {
   FramedImage,
   LineIcon,
 } from "@/components/ui";
-import batalha from "../../../public/images/batalha.jpg";
-import capela from "../../../public/images/capela.jpg";
 import coroacao from "../../../public/images/coroacao.jpg";
 import janela from "../../../public/images/janela.jpg";
 
@@ -21,12 +19,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
   return (
     <>
-      {/* Header + hero */}
-      <section className="relative overflow-hidden bg-plum-950 text-cream">
+      {/* Header + hero, with the crowning image framed beside the title */}
+      <section className="texture-dark relative overflow-hidden bg-plum-950 text-cream">
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,164,106,0.18),transparent_60%)]"
           aria-hidden="true"
         />
+
         <header className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-6 sm:px-8">
           <span className="flex items-center gap-2.5 font-serif text-lg tracking-wide text-gold-light">
             <Crown className="h-4 w-7 text-gold" />
@@ -35,7 +34,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <a
             href={c.langSwitch.href}
             hrefLang={c.langSwitch.href.slice(1)}
-            className="rounded-full border border-gold/40 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-gold-light transition hover:border-gold hover:text-cream"
+            className="rounded-full border border-gold/40 bg-plum-950/40 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-gold-light backdrop-blur-sm transition hover:border-gold hover:text-cream"
           >
             {c.langSwitch.label}
           </a>
@@ -45,13 +44,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <div className="text-center lg:text-left">
             <Eyebrow className="leading-relaxed">{c.hero.eyebrow}</Eyebrow>
             <Crown className="mx-auto mt-10 h-7 w-12 text-gold lg:mx-0" />
-            <h1 className="mt-6 font-serif text-6xl font-medium leading-none tracking-tight text-cream sm:text-8xl">
+            <h1 className="mt-6 font-serif text-6xl font-medium leading-none tracking-tight text-cream drop-shadow-lg sm:text-8xl">
               {c.hero.title}
             </h1>
             <p className="mx-auto mt-8 max-w-2xl font-serif text-2xl italic leading-snug text-gold-light sm:text-3xl lg:mx-0">
               {c.hero.subtitle}
             </p>
-            <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg lg:mx-0">
+            <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-cream/80 sm:text-lg lg:mx-0">
               {c.hero.body}
             </p>
             <div className="mt-12">
@@ -73,21 +72,15 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       </section>
 
       {/* Do you identify? */}
-      <section className="bg-cream px-4 py-24 sm:px-8 sm:py-32">
+      <section className="texture-light bg-cream px-4 py-24 sm:px-8 sm:py-32">
         <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2 md:gap-16">
-          <div className="relative mx-auto w-full max-w-sm md:max-w-none">
-            <div
-              className="absolute -inset-3 translate-x-3 translate-y-3 rounded-sm border border-gold/50"
-              aria-hidden="true"
-            />
-            <Image
-              src={janela}
-              alt={c.images.window}
-              placeholder="blur"
-              sizes="(min-width: 768px) 40vw, 90vw"
-              className="relative aspect-[4/5] w-full rounded-sm object-cover shadow-xl shadow-plum-900/10"
-            />
-          </div>
+          <FramedImage
+            src={janela}
+            alt={c.images.window}
+            className="mx-auto w-full max-w-sm md:max-w-none"
+            imageClassName="aspect-[4/5]"
+            sizes="(min-width: 768px) 40vw, 90vw"
+          />
           <div className="text-center md:text-left">
             <Eyebrow>{c.identify.eyebrow}</Eyebrow>
             <h2 className="mt-6 font-serif text-4xl font-medium leading-tight text-plum-900 sm:text-5xl lg:text-6xl">
@@ -100,18 +93,19 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
-      {/* Patterns */}
-      <section className="bg-cream-dark px-4 py-24 sm:px-8 sm:py-28">
+      {/* What we will work on */}
+      <section className="texture-light bg-cream-dark px-4 py-24 sm:px-8 sm:py-28">
         <div className="mx-auto max-w-5xl text-center">
           <Eyebrow>{c.patterns.eyebrow}</Eyebrow>
           <h2 className="mt-6 font-serif text-4xl font-medium text-plum-900 sm:text-5xl">
             {c.patterns.title}
           </h2>
+          <Divider className="mt-8" />
           <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {c.patterns.items.map((item, i) => (
               <li
                 key={item.title}
-                className="flex flex-col items-center rounded-sm border border-gold/30 bg-cream px-6 py-10"
+                className="flex flex-col items-center rounded-sm border border-gold/30 bg-cream/80 px-6 py-10"
               >
                 <span className="font-serif text-4xl text-gold">
                   {["I", "II", "III", "IV"][i]}
@@ -129,33 +123,27 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       </section>
 
       {/* What the journey is */}
-      <section className="bg-plum-900 px-4 py-24 text-cream sm:px-8 sm:py-32">
-        <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_1.2fr]">
-          <FramedImage
-            src={batalha}
-            alt={c.images.battle}
-            className="mx-auto w-full max-w-sm lg:max-w-md"
-            imageClassName="aspect-[3/4]"
-            sizes="(min-width: 1024px) 448px, 384px"
-          />
-          <div className="text-center lg:text-left">
-            <Eyebrow>{c.work.eyebrow}</Eyebrow>
-            <h2 className="mt-6 font-serif text-4xl font-medium leading-tight sm:text-5xl">
-              {c.work.title}
-            </h2>
-            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-cream/80 lg:mx-0">
-              {c.work.body}
-            </p>
-            <Divider className="mt-12 lg:mx-0 lg:justify-start" />
-            <blockquote className="mt-10 font-serif text-3xl italic leading-snug text-gold-light sm:text-4xl">
-              “{c.work.quote}”
-            </blockquote>
-          </div>
+      <section className="texture-dark bg-plum-900 px-4 py-24 text-center text-cream sm:px-8 sm:py-32">
+        <div className="mx-auto max-w-3xl">
+          <Eyebrow>{c.work.eyebrow}</Eyebrow>
+          <h2 className="mt-6 font-serif text-4xl font-medium leading-tight sm:text-5xl">
+            {c.work.title}
+          </h2>
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-cream/80">
+            {c.work.body}
+          </p>
+          <Divider className="mt-14" />
+          <blockquote className="mt-10 font-serif text-3xl italic leading-snug text-gold-light sm:text-4xl">
+            “{c.work.quote}”
+          </blockquote>
         </div>
       </section>
 
       {/* 30-day structure */}
-      <section id="jornada" className="bg-cream px-4 py-24 sm:px-8 sm:py-32">
+      <section
+        id="jornada"
+        className="texture-light bg-cream px-4 py-24 sm:px-8 sm:py-32"
+      >
         <div className="mx-auto max-w-4xl">
           <div className="text-center">
             <Eyebrow>{c.journey.eyebrow}</Eyebrow>
@@ -163,16 +151,17 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               {c.journey.title}
             </h2>
             <p className="mt-4 text-lg text-ink-soft">{c.journey.intro}</p>
+            <Divider className="mt-8" />
           </div>
 
-          <ol className="mt-16 space-y-4">
+          <ol className="mt-14 space-y-4">
             {c.journey.stages.map((stage, i) => {
               const first = stage.days[0].n;
               const last = stage.days[stage.days.length - 1].n;
               return (
                 <li
                   key={stage.title}
-                  className="flex items-center gap-5 rounded-sm border border-gold/30 bg-white/70 px-5 py-7 sm:gap-8 sm:px-8"
+                  className="flex items-center gap-5 rounded-sm border border-gold/30 bg-white/60 px-5 py-7 sm:gap-8 sm:px-8"
                 >
                   <span className="w-8 shrink-0 text-center font-serif text-5xl leading-none text-gold sm:w-10 sm:text-6xl">
                     {i + 1}
@@ -198,19 +187,20 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       </section>
 
       {/* What's included */}
-      <section className="bg-plum-900 px-4 py-24 text-cream sm:px-8 sm:py-32">
+      <section className="texture-dark bg-plum-900 px-4 py-24 text-cream sm:px-8 sm:py-32">
         <div className="mx-auto max-w-6xl">
           <div className="text-center">
             <Eyebrow>{c.included.eyebrow}</Eyebrow>
             <h2 className="mt-6 font-serif text-4xl font-medium leading-tight sm:text-5xl">
               {c.included.title}
             </h2>
+            <Divider className="mt-8" />
           </div>
-          <ul className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {c.included.items.map((item) => (
               <li
                 key={item.title}
-                className="flex flex-col items-center rounded-sm border border-gold/25 bg-plum-950/40 px-6 py-10 text-center"
+                className="flex flex-col items-center rounded-sm border border-gold/25 bg-plum-950/50 px-6 py-10 text-center"
               >
                 <span className="flex size-16 items-center justify-center rounded-full border border-gold/40 text-gold">
                   <LineIcon name={item.icon} className="size-7" />
@@ -231,14 +221,14 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       </section>
 
       {/* Testimonials from the first mentees */}
-      <section className="bg-cream-dark px-4 py-24 sm:px-8 sm:py-32">
+      <section className="texture-light bg-cream-dark px-4 py-24 sm:px-8 sm:py-32">
         <div className="mx-auto max-w-5xl">
           <div className="text-center">
             <Eyebrow>{c.testimonials.eyebrow}</Eyebrow>
             <h2 className="mt-6 font-serif text-4xl font-medium leading-tight text-plum-900 sm:text-5xl">
               {c.testimonials.title}
             </h2>
-            <Divider className="mt-10" />
+            <Divider className="mt-8" />
           </div>
 
           {c.testimonials.items.length === 0 ? (
@@ -250,7 +240,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               {c.testimonials.items.map((t) => (
                 <li
                   key={t.name + t.quote.slice(0, 20)}
-                  className="flex flex-col rounded-sm border border-gold/30 bg-cream px-7 py-9 sm:px-10"
+                  className="flex flex-col rounded-sm border border-gold/30 bg-cream/80 px-7 py-9 sm:px-10"
                 >
                   <span
                     className="font-serif text-6xl leading-none text-gold"
@@ -277,33 +267,24 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       {/* Final call to action */}
       <section
         id="comecar"
-        className="relative overflow-hidden bg-plum-950 px-4 py-28 text-cream sm:px-8 sm:py-36"
+        className="texture-dark relative overflow-hidden bg-plum-950 px-4 py-28 text-center text-cream sm:px-8 sm:py-36"
       >
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(201,164,106,0.16),transparent_60%)]"
           aria-hidden="true"
         />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1.15fr_1fr]">
-          <div className="text-center lg:text-left">
-            <Crown className="mx-auto h-7 w-12 text-gold lg:mx-0" />
-            <Eyebrow className="mt-8">{c.final.eyebrow}</Eyebrow>
-            <h2 className="mt-6 font-serif text-5xl font-medium leading-tight sm:text-6xl">
-              {c.final.title}
-            </h2>
-            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream/75 lg:mx-0">
-              {c.final.body}
-            </p>
-            <div className="mt-12">
-              <CtaButton href={CHECKOUT_URL}>{c.final.cta}</CtaButton>
-            </div>
+        <div className="relative mx-auto max-w-2xl">
+          <Crown className="mx-auto h-7 w-12 text-gold" />
+          <Eyebrow className="mt-8">{c.final.eyebrow}</Eyebrow>
+          <h2 className="mt-6 font-serif text-5xl font-medium leading-tight sm:text-6xl">
+            {c.final.title}
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream/75">
+            {c.final.body}
+          </p>
+          <div className="mt-12">
+            <CtaButton href={CHECKOUT_URL}>{c.final.cta}</CtaButton>
           </div>
-          <FramedImage
-            src={capela}
-            alt={c.images.chapel}
-            className="mx-auto w-full max-w-sm lg:max-w-md"
-            imageClassName="aspect-[4/5] object-[50%_35%]"
-            sizes="(min-width: 1024px) 448px, 384px"
-          />
         </div>
       </section>
 

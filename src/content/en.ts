@@ -11,14 +11,12 @@ export const en: Content = {
   images: {
     window: "A woman looking out of a window, deep in thought",
     crowning: "Jesus placing a crown on the head of a woman in armor",
-    battle: "A woman in armor kneeling, hands clasped with Jesus on a battlefield",
-    chapel: "A woman in armor kneeling in prayer in a chapel, with Jesus beside her",
   },
   hero: {
     eyebrow: "Mentorship · Emotional healing, identity & faith · Monique Della",
     title: "Daughter of the King",
     subtitle:
-      "Finding your way back to the woman you were before you learned to survive.",
+      "Take off the armor of survival and receive the crown of your identity.",
     body: "A Christian journey of self-discovery, rebuilt identity and new beginnings for women who want to stop repeating old patterns and start living with purpose.",
     cta: "I want to write a new story",
     note: "30 days to transformation",

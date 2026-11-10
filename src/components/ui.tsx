@@ -123,16 +123,25 @@ export function Eyebrow({
   );
 }
 
+// A classic ornamental flourish: fine rules, a central lens and a dot.
 export function Divider({ className = "" }: { className?: string }) {
   return (
-    <div
-      className={`mx-auto flex items-center justify-center gap-3 text-gold ${className}`}
+    <svg
+      viewBox="0 0 200 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1"
+      strokeLinecap="round"
       aria-hidden="true"
+      className={`mx-auto block h-5 w-44 text-gold ${className}`}
     >
-      <span className="h-px w-12 bg-gold/50" />
-      <span className="size-1.5 rotate-45 border border-gold" />
-      <span className="h-px w-12 bg-gold/50" />
-    </div>
+      <path d="M14 12h58M128 12h58" opacity=".6" />
+      <path d="M72 12c7 0 9-7 16-7 5 0 8 3 12 7 4-4 7-7 12-7 7 0 9 7 16 7" />
+      <path d="M72 12c7 0 9 7 16 7 5 0 8-3 12-7 4 4 7 7 12 7 7 0 9-7 16-7" />
+      <circle cx="100" cy="12" r="2.2" fill="currentColor" stroke="none" />
+      <circle cx="9" cy="12" r="1.6" fill="currentColor" stroke="none" />
+      <circle cx="191" cy="12" r="1.6" fill="currentColor" stroke="none" />
+    </svg>
   );
 }
 

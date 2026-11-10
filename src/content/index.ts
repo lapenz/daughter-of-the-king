@@ -44,8 +44,6 @@ export type Content = {
   images: {
     window: string;
     crowning: string;
-    battle: string;
-    chapel: string;
   };
   hero: {
     eyebrow: string;
