@@ -23,7 +23,7 @@ export const pt: Content = {
   },
   identify: {
     eyebrow: "Você se identifica?",
-    title: "Aquela sensação de ter se perdido de si mesma.",
+    title: "Em algum lugar do caminho, você se perdeu de si mesma.",
     lines: [
       "Você se olha no espelho e já não reconhece quem está ali.",
       "Não sabe mais do que gosta, o que sente ou o que quer.",

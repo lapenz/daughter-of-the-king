@@ -23,7 +23,7 @@ export const en: Content = {
   },
   identify: {
     eyebrow: "Does this sound like you?",
-    title: "That feeling of having lost yourself.",
+    title: "Somewhere along the way, you lost yourself.",
     lines: [
       "You look in the mirror and no longer recognize who is there.",
       "You don't know anymore what you like, what you feel or what you want.",
