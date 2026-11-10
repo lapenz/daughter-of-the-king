@@ -1,0 +1,319 @@
+import Image from "next/image";
+import { notFound } from "next/navigation";
+import { CHECKOUT_URL, getContent, hasLocale } from "@/content";
+import { Crown, CtaButton, Divider, Eyebrow } from "@/components/ui";
+import biblia from "../../../public/images/biblia.jpg";
+import caminho from "../../../public/images/caminho.jpg";
+import flores from "../../../public/images/flores.jpg";
+import heroOracao from "../../../public/images/hero-oracao.jpg";
+import janela from "../../../public/images/janela.jpg";
+
+export default async function Home({ params }: PageProps<"/[lang]">) {
+  const { lang } = await params;
+  if (!hasLocale(lang)) notFound();
+  const c = getContent(lang);
+
+  return (
+    <>
+      {/* Header + hero */}
+      <section className="relative overflow-hidden bg-plum-950 text-cream">
+        <Image
+          src={heroOracao}
+          alt=""
+          fill
+          priority
+          placeholder="blur"
+          sizes="100vw"
+          className="object-cover object-[50%_30%]"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-plum-950/55 via-plum-950/50 to-plum-950/90"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,164,106,0.18),transparent_60%)]"
+          aria-hidden="true"
+        />
+        <header className="relative mx-auto flex max-w-6xl items-center justify-between px-4 py-6 sm:px-8">
+          <span className="flex items-center gap-2.5 font-serif text-lg tracking-wide text-gold-light">
+            <Crown className="h-4 w-7 text-gold" />
+            {c.brand}
+          </span>
+          <a
+            href={c.langSwitch.href}
+            hrefLang={c.langSwitch.href.slice(1)}
+            className="rounded-full border border-gold/40 px-4 py-1.5 text-xs uppercase tracking-[0.2em] text-gold-light transition hover:border-gold hover:text-cream"
+          >
+            {c.langSwitch.label}
+          </a>
+        </header>
+
+        <div className="relative mx-auto max-w-3xl px-4 pb-24 pt-12 text-center sm:px-8 sm:pb-32 sm:pt-20">
+          <Eyebrow className="leading-relaxed">{c.hero.eyebrow}</Eyebrow>
+          <Crown className="mx-auto mt-10 h-7 w-12 text-gold" />
+          <h1 className="mt-6 font-serif text-6xl font-medium leading-none tracking-tight text-cream sm:text-8xl">
+            {c.hero.title}
+          </h1>
+          <p className="mx-auto mt-8 max-w-2xl font-serif text-2xl italic leading-snug text-gold-light sm:text-3xl">
+            {c.hero.subtitle}
+          </p>
+          <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg">
+            {c.hero.body}
+          </p>
+          <div className="mt-12">
+            <CtaButton href={CHECKOUT_URL}>{c.hero.cta}</CtaButton>
+          </div>
+          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-gold/80">
+            {c.hero.note}
+          </p>
+        </div>
+      </section>
+
+      {/* Do you identify? */}
+      <section className="bg-cream px-4 py-24 sm:px-8 sm:py-32">
+        <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2 md:gap-16">
+          <div className="relative mx-auto w-full max-w-sm md:max-w-none">
+            <div
+              className="absolute -inset-3 translate-x-3 translate-y-3 rounded-sm border border-gold/50"
+              aria-hidden="true"
+            />
+            <Image
+              src={janela}
+              alt={c.images.window}
+              placeholder="blur"
+              sizes="(min-width: 768px) 40vw, 90vw"
+              className="relative aspect-[4/5] w-full rounded-sm object-cover shadow-xl shadow-plum-900/10"
+            />
+          </div>
+          <div className="text-center md:text-left">
+            <Eyebrow>{c.identify.eyebrow}</Eyebrow>
+            <h2 className="mt-6 font-serif text-4xl font-medium leading-tight text-plum-900 sm:text-5xl lg:text-6xl">
+              {c.identify.title}
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-ink-soft">
+              {c.identify.body}
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Patterns */}
+      <section className="bg-cream-dark px-4 py-24 sm:px-8 sm:py-28">
+        <div className="mx-auto max-w-5xl text-center">
+          <Eyebrow>{c.patterns.eyebrow}</Eyebrow>
+          <h2 className="mt-6 font-serif text-4xl font-medium text-plum-900 sm:text-5xl">
+            {c.patterns.title}
+          </h2>
+          <ul className="mt-14 grid gap-5 sm:grid-cols-3">
+            {c.patterns.items.map((item, i) => (
+              <li
+                key={item}
+                className="flex flex-col items-center rounded-sm border border-gold/30 bg-cream px-6 py-10"
+              >
+                <span className="font-serif text-4xl text-gold">
+                  {["I", "II", "III"][i]}
+                </span>
+                <span className="mt-4 font-serif text-2xl leading-snug text-plum-900">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* What the journey is */}
+      <section className="relative overflow-hidden bg-plum-900 px-4 py-24 text-center text-cream sm:px-8 sm:py-32">
+        <Image
+          src={flores}
+          alt=""
+          fill
+          placeholder="blur"
+          sizes="100vw"
+          className="object-cover opacity-40"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-plum-900/55"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto max-w-3xl">
+          <Eyebrow>{c.work.eyebrow}</Eyebrow>
+          <h2 className="mt-6 font-serif text-4xl font-medium leading-tight sm:text-5xl">
+            {c.work.title}
+          </h2>
+          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-cream/80">
+            {c.work.body}
+          </p>
+          <Divider className="mt-14" />
+          <blockquote className="mt-10 font-serif text-3xl italic leading-snug text-gold-light sm:text-4xl">
+            “{c.work.quote}”
+          </blockquote>
+        </div>
+      </section>
+
+      {/* 30-day structure */}
+      <section id="jornada" className="bg-cream px-4 py-24 sm:px-8 sm:py-32">
+        <div className="mx-auto max-w-4xl">
+          <div className="text-center">
+            <Eyebrow>{c.journey.eyebrow}</Eyebrow>
+            <h2 className="mt-6 font-serif text-5xl font-medium text-plum-900 sm:text-6xl">
+              {c.journey.title}
+            </h2>
+            <p className="mt-4 text-lg text-ink-soft">{c.journey.intro}</p>
+          </div>
+
+          <ol className="mt-16 space-y-4">
+            {c.journey.stages.map((stage, i) => {
+              const first = stage.days[0].n;
+              const last = stage.days[stage.days.length - 1].n;
+              return (
+                <li
+                  key={stage.title}
+                  className="flex items-center gap-5 rounded-sm border border-gold/30 bg-white/70 px-5 py-7 sm:gap-8 sm:px-8"
+                >
+                  <span className="w-8 shrink-0 text-center font-serif text-5xl leading-none text-gold sm:w-10 sm:text-6xl">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <p className="text-[0.7rem] uppercase tracking-[0.25em] text-gold">
+                      {stage.label} · {c.journey.daysLabel} {first}–{last}
+                    </p>
+                    <h3 className="mt-1 font-serif text-2xl font-medium text-plum-900 sm:text-3xl">
+                      {stage.title}
+                    </h3>
+                    <p className="mt-1 text-ink-soft">{stage.subtitle}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+
+          <p className="mx-auto mt-14 max-w-2xl text-center font-serif text-2xl italic leading-snug text-plum-800">
+            {c.journey.closing}
+          </p>
+        </div>
+      </section>
+
+      {/* Day 1 preview */}
+      <section className="bg-cream-dark px-4 py-24 sm:px-8 sm:py-32">
+        <article className="mx-auto max-w-2xl overflow-hidden rounded-sm bg-cream shadow-xl shadow-plum-900/5">
+          <Image
+            src={biblia}
+            alt={c.images.bible}
+            placeholder="blur"
+            sizes="(min-width: 672px) 672px, 100vw"
+            className="aspect-[16/9] w-full object-cover"
+          />
+          <div className="px-6 py-14 sm:px-14 sm:py-20">
+          <header className="text-center">
+            <Eyebrow>{c.dayOne.eyebrow}</Eyebrow>
+            <h2 className="mt-6 font-serif text-4xl font-medium leading-tight text-plum-900 sm:text-5xl">
+              {c.dayOne.title}
+            </h2>
+            <p className="mt-4 text-sm italic text-plum-700">
+              {c.dayOne.reading}
+            </p>
+            <Divider className="mt-10" />
+          </header>
+
+          <div className="mt-10 space-y-5 text-lg leading-relaxed text-ink">
+            <h3 className="font-serif text-3xl font-medium text-plum-900">
+              {c.dayOne.openingHeading}
+            </h3>
+            {c.dayOne.opening.map((p, i) => (
+              <p
+                key={i}
+                className={i < 2 ? "font-serif text-2xl italic text-plum-800" : ""}
+              >
+                {p}
+              </p>
+            ))}
+
+            <h3 className="pt-6 font-serif text-3xl font-medium text-plum-900">
+              {c.dayOne.truthHeading}
+            </h3>
+            {c.dayOne.truth.map((p, i) => (
+              <p key={i}>{p}</p>
+            ))}
+          </div>
+
+          <div className="mt-12 rounded-sm border border-gold/30 bg-white/70 px-6 py-8 sm:px-8">
+            <h3 className="font-serif text-2xl font-medium text-plum-900">
+              {c.dayOne.reflectHeading}
+            </h3>
+            <p className="mt-2 text-ink-soft">{c.dayOne.reflectIntro}</p>
+            <ol className="mt-5 space-y-3">
+              {c.dayOne.questions.map((q, i) => (
+                <li key={q} className="flex gap-4 leading-relaxed">
+                  <span className="font-serif text-xl text-gold">{i + 1}.</span>
+                  <span>{q}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div className="mt-8 px-1">
+            <h3 className="font-serif text-2xl font-medium text-plum-900">
+              {c.dayOne.practiceHeading}
+            </h3>
+            {c.dayOne.practice.map((p) => (
+              <p key={p} className="mt-3 leading-relaxed">
+                {p}
+              </p>
+            ))}
+          </div>
+
+          <div className="mt-12 rounded-sm bg-plum-900 px-6 py-10 text-center sm:px-10">
+            <Eyebrow>{c.dayOne.declarationHeading}</Eyebrow>
+            <p className="mt-5 font-serif text-2xl italic leading-snug text-cream sm:text-3xl">
+              “{c.dayOne.declaration}”
+            </p>
+          </div>
+          </div>
+        </article>
+      </section>
+
+      {/* Final call to action */}
+      <section
+        id="comecar"
+        className="relative overflow-hidden bg-plum-950 px-4 py-28 text-center text-cream sm:px-8 sm:py-36"
+      >
+        <Image
+          src={caminho}
+          alt=""
+          fill
+          placeholder="blur"
+          sizes="100vw"
+          className="object-cover object-[50%_75%] opacity-35"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-plum-950 via-plum-950/70 to-plum-950/50"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(201,164,106,0.16),transparent_60%)]"
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto max-w-2xl">
+          <Crown className="mx-auto h-7 w-12 text-gold" />
+          <Eyebrow className="mt-8">{c.final.eyebrow}</Eyebrow>
+          <h2 className="mt-6 font-serif text-5xl font-medium leading-tight sm:text-6xl">
+            {c.final.title}
+          </h2>
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream/75">
+            {c.final.body}
+          </p>
+          <div className="mt-12">
+            <CtaButton href={CHECKOUT_URL}>{c.final.cta}</CtaButton>
+          </div>
+        </div>
+      </section>
+
+      <footer className="bg-plum-950 px-4 pb-10 text-center text-xs uppercase tracking-[0.25em] text-gold/60">
+        <div className="mx-auto max-w-6xl border-t border-gold/15 pt-8">
+          {c.footer}
+        </div>
+      </footer>
+    </>
+  );
+}
