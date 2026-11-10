@@ -32,7 +32,13 @@ export type Content = {
   meta: { title: string; description: string };
   brand: string;
   langSwitch: { label: string; href: string };
-  images: { window: string; bible: string };
+  images: {
+    window: string;
+    bible: string;
+    crowning: string;
+    battle: string;
+    chapel: string;
+  };
   hero: {
     eyebrow: string;
     title: string;
@@ -49,7 +55,7 @@ export type Content = {
   patterns: {
     eyebrow: string;
     title: string;
-    items: string[];
+    items: { title: string; text: string }[];
   };
   work: {
     eyebrow: string;

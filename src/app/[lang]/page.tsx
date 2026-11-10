@@ -1,11 +1,17 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { CHECKOUT_URL, getContent, hasLocale } from "@/content";
-import { Crown, CtaButton, Divider, Eyebrow } from "@/components/ui";
+import {
+  Crown,
+  CtaButton,
+  Divider,
+  Eyebrow,
+  FramedImage,
+} from "@/components/ui";
+import batalha from "../../../public/images/batalha.jpg";
 import biblia from "../../../public/images/biblia.jpg";
-import caminho from "../../../public/images/caminho.jpg";
-import flores from "../../../public/images/flores.jpg";
-import heroOracao from "../../../public/images/hero-oracao.jpg";
+import capela from "../../../public/images/capela.jpg";
+import coroacao from "../../../public/images/coroacao.jpg";
 import janela from "../../../public/images/janela.jpg";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
@@ -17,19 +23,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
     <>
       {/* Header + hero */}
       <section className="relative overflow-hidden bg-plum-950 text-cream">
-        <Image
-          src={heroOracao}
-          alt=""
-          fill
-          priority
-          placeholder="blur"
-          sizes="100vw"
-          className="object-cover object-[50%_30%]"
-        />
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-plum-950/55 via-plum-950/50 to-plum-950/90"
-          aria-hidden="true"
-        />
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,164,106,0.18),transparent_60%)]"
           aria-hidden="true"
@@ -48,24 +41,34 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </a>
         </header>
 
-        <div className="relative mx-auto max-w-3xl px-4 pb-24 pt-12 text-center sm:px-8 sm:pb-32 sm:pt-20">
-          <Eyebrow className="leading-relaxed">{c.hero.eyebrow}</Eyebrow>
-          <Crown className="mx-auto mt-10 h-7 w-12 text-gold" />
-          <h1 className="mt-6 font-serif text-6xl font-medium leading-none tracking-tight text-cream sm:text-8xl">
-            {c.hero.title}
-          </h1>
-          <p className="mx-auto mt-8 max-w-2xl font-serif text-2xl italic leading-snug text-gold-light sm:text-3xl">
-            {c.hero.subtitle}
-          </p>
-          <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg">
-            {c.hero.body}
-          </p>
-          <div className="mt-12">
-            <CtaButton href={CHECKOUT_URL}>{c.hero.cta}</CtaButton>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-16 px-4 pb-24 pt-10 sm:px-8 sm:pb-32 lg:grid-cols-[1.15fr_1fr] lg:pt-16">
+          <div className="text-center lg:text-left">
+            <Eyebrow className="leading-relaxed">{c.hero.eyebrow}</Eyebrow>
+            <Crown className="mx-auto mt-10 h-7 w-12 text-gold lg:mx-0" />
+            <h1 className="mt-6 font-serif text-6xl font-medium leading-none tracking-tight text-cream sm:text-8xl">
+              {c.hero.title}
+            </h1>
+            <p className="mx-auto mt-8 max-w-2xl font-serif text-2xl italic leading-snug text-gold-light sm:text-3xl lg:mx-0">
+              {c.hero.subtitle}
+            </p>
+            <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg lg:mx-0">
+              {c.hero.body}
+            </p>
+            <div className="mt-12">
+              <CtaButton href={CHECKOUT_URL}>{c.hero.cta}</CtaButton>
+            </div>
+            <p className="mt-6 text-xs uppercase tracking-[0.3em] text-gold/80">
+              {c.hero.note}
+            </p>
           </div>
-          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-gold/80">
-            {c.hero.note}
-          </p>
+          <FramedImage
+            src={coroacao}
+            alt={c.images.crowning}
+            priority
+            className="mx-auto w-full max-w-sm lg:max-w-md"
+            imageClassName="aspect-[4/5] object-[50%_20%]"
+            sizes="(min-width: 1024px) 448px, 384px"
+          />
         </div>
       </section>
 
@@ -104,18 +107,21 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           <h2 className="mt-6 font-serif text-4xl font-medium text-plum-900 sm:text-5xl">
             {c.patterns.title}
           </h2>
-          <ul className="mt-14 grid gap-5 sm:grid-cols-3">
+          <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {c.patterns.items.map((item, i) => (
               <li
-                key={item}
+                key={item.title}
                 className="flex flex-col items-center rounded-sm border border-gold/30 bg-cream px-6 py-10"
               >
                 <span className="font-serif text-4xl text-gold">
-                  {["I", "II", "III"][i]}
+                  {["I", "II", "III", "IV"][i]}
                 </span>
-                <span className="mt-4 font-serif text-2xl leading-snug text-plum-900">
-                  {item}
-                </span>
+                <h3 className="mt-4 font-serif text-2xl leading-snug text-plum-900">
+                  {item.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-ink-soft">
+                  {item.text}
+                </p>
               </li>
             ))}
           </ul>
@@ -123,31 +129,28 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       </section>
 
       {/* What the journey is */}
-      <section className="relative overflow-hidden bg-plum-900 px-4 py-24 text-center text-cream sm:px-8 sm:py-32">
-        <Image
-          src={flores}
-          alt=""
-          fill
-          placeholder="blur"
-          sizes="100vw"
-          className="object-cover opacity-40"
-        />
-        <div
-          className="pointer-events-none absolute inset-0 bg-plum-900/55"
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto max-w-3xl">
-          <Eyebrow>{c.work.eyebrow}</Eyebrow>
-          <h2 className="mt-6 font-serif text-4xl font-medium leading-tight sm:text-5xl">
-            {c.work.title}
-          </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-cream/80">
-            {c.work.body}
-          </p>
-          <Divider className="mt-14" />
-          <blockquote className="mt-10 font-serif text-3xl italic leading-snug text-gold-light sm:text-4xl">
-            “{c.work.quote}”
-          </blockquote>
+      <section className="bg-plum-900 px-4 py-24 text-cream sm:px-8 sm:py-32">
+        <div className="mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1fr_1.2fr]">
+          <FramedImage
+            src={batalha}
+            alt={c.images.battle}
+            className="mx-auto w-full max-w-sm lg:max-w-md"
+            imageClassName="aspect-[3/4]"
+            sizes="(min-width: 1024px) 448px, 384px"
+          />
+          <div className="text-center lg:text-left">
+            <Eyebrow>{c.work.eyebrow}</Eyebrow>
+            <h2 className="mt-6 font-serif text-4xl font-medium leading-tight sm:text-5xl">
+              {c.work.title}
+            </h2>
+            <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-cream/80 lg:mx-0">
+              {c.work.body}
+            </p>
+            <Divider className="mt-12 lg:mx-0 lg:justify-start" />
+            <blockquote className="mt-10 font-serif text-3xl italic leading-snug text-gold-light sm:text-4xl">
+              “{c.work.quote}”
+            </blockquote>
+          </div>
         </div>
       </section>
 
@@ -276,36 +279,33 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       {/* Final call to action */}
       <section
         id="comecar"
-        className="relative overflow-hidden bg-plum-950 px-4 py-28 text-center text-cream sm:px-8 sm:py-36"
+        className="relative overflow-hidden bg-plum-950 px-4 py-28 text-cream sm:px-8 sm:py-36"
       >
-        <Image
-          src={caminho}
-          alt=""
-          fill
-          placeholder="blur"
-          sizes="100vw"
-          className="object-cover object-[50%_75%] opacity-35"
-        />
-        <div
-          className="pointer-events-none absolute inset-0 bg-gradient-to-t from-plum-950 via-plum-950/70 to-plum-950/50"
-          aria-hidden="true"
-        />
         <div
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(201,164,106,0.16),transparent_60%)]"
           aria-hidden="true"
         />
-        <div className="relative mx-auto max-w-2xl">
-          <Crown className="mx-auto h-7 w-12 text-gold" />
-          <Eyebrow className="mt-8">{c.final.eyebrow}</Eyebrow>
-          <h2 className="mt-6 font-serif text-5xl font-medium leading-tight sm:text-6xl">
-            {c.final.title}
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream/75">
-            {c.final.body}
-          </p>
-          <div className="mt-12">
-            <CtaButton href={CHECKOUT_URL}>{c.final.cta}</CtaButton>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-16 lg:grid-cols-[1.15fr_1fr]">
+          <div className="text-center lg:text-left">
+            <Crown className="mx-auto h-7 w-12 text-gold lg:mx-0" />
+            <Eyebrow className="mt-8">{c.final.eyebrow}</Eyebrow>
+            <h2 className="mt-6 font-serif text-5xl font-medium leading-tight sm:text-6xl">
+              {c.final.title}
+            </h2>
+            <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-cream/75 lg:mx-0">
+              {c.final.body}
+            </p>
+            <div className="mt-12">
+              <CtaButton href={CHECKOUT_URL}>{c.final.cta}</CtaButton>
+            </div>
           </div>
+          <FramedImage
+            src={capela}
+            alt={c.images.chapel}
+            className="mx-auto w-full max-w-sm lg:max-w-md"
+            imageClassName="aspect-[4/5] object-[50%_35%]"
+            sizes="(min-width: 1024px) 448px, 384px"
+          />
         </div>
       </section>
 

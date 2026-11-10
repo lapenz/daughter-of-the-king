@@ -11,6 +11,9 @@ export const pt: Content = {
   images: {
     window: "Mulher olhando pela janela, pensativa",
     bible: "Mãos segurando uma Bíblia",
+    crowning: "Jesus coloca uma coroa sobre a cabeça de uma mulher de armadura",
+    battle: "Uma mulher de armadura ajoelhada, de mãos dadas com Jesus no campo de batalha",
+    chapel: "Uma mulher de armadura ajoelhada em oração numa capela, com Jesus ao seu lado",
   },
   hero: {
     eyebrow: "Mentoria · Cura emocional, identidade e fé · Monique Della",
@@ -30,9 +33,22 @@ export const pt: Content = {
     eyebrow: "Descubra o que está por trás dos seus padrões",
     title: "O que vai ser trabalhado",
     items: [
-      "Os relacionamentos que você aceita.",
-      "Os limites que não consegue estabelecer.",
-      "O medo de não ser suficiente.",
+      {
+        title: "Restaurar a sua identidade",
+        text: "Descobrir quem Deus diz que você é, além dos rótulos que recebeu.",
+      },
+      {
+        title: "Renovar a mente",
+        text: "Romper padrões destrutivos e transformar a maneira de pensar, escolher e confiar.",
+      },
+      {
+        title: "Ressignificar a dor",
+        text: "Compreender o passado sem permitir que ele determine o seu futuro.",
+      },
+      {
+        title: "Recomeçar com fé",
+        text: "Despertar para uma vida com propósito e liberdade.",
+      },
     ],
   },
   work: {

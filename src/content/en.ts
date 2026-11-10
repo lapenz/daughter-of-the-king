@@ -11,6 +11,9 @@ export const en: Content = {
   images: {
     window: "A woman looking out of a window, deep in thought",
     bible: "Hands holding a Bible",
+    crowning: "Jesus placing a crown on the head of a woman in armor",
+    battle: "A woman in armor kneeling, hands clasped with Jesus on a battlefield",
+    chapel: "A woman in armor kneeling in prayer in a chapel, with Jesus beside her",
   },
   hero: {
     eyebrow: "Mentorship · Emotional healing, identity & faith · Monique Della",
@@ -30,9 +33,22 @@ export const en: Content = {
     eyebrow: "Discover what lies behind your patterns",
     title: "What we will work on",
     items: [
-      "The relationships you settle for.",
-      "The boundaries you can't seem to set.",
-      "The fear of not being enough.",
+      {
+        title: "Restore your identity",
+        text: "Discover who God says you are, beyond the labels you were given.",
+      },
+      {
+        title: "Renew your mind",
+        text: "Break destructive patterns and transform the way you think, choose and trust.",
+      },
+      {
+        title: "Find new meaning in pain",
+        text: "Understand the past without letting it decide your future.",
+      },
+      {
+        title: "Begin again with faith",
+        text: "Awaken to a life of purpose and freedom.",
+      },
     ],
   },
   work: {

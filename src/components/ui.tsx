@@ -1,4 +1,39 @@
+import Image, { type StaticImageData } from "next/image";
 import type { ReactNode } from "react";
+
+// A photo with a thin gold frame offset behind it.
+export function FramedImage({
+  src,
+  alt,
+  sizes,
+  priority = false,
+  className = "",
+  imageClassName = "",
+}: {
+  src: StaticImageData;
+  alt: string;
+  sizes: string;
+  priority?: boolean;
+  className?: string;
+  imageClassName?: string;
+}) {
+  return (
+    <div className={`relative ${className}`}>
+      <div
+        className="absolute -inset-3 translate-x-3 translate-y-3 rounded-sm border border-gold/50"
+        aria-hidden="true"
+      />
+      <Image
+        src={src}
+        alt={alt}
+        sizes={sizes}
+        priority={priority}
+        placeholder="blur"
+        className={`relative w-full rounded-sm object-cover shadow-2xl shadow-black/30 ${imageClassName}`}
+      />
+    </div>
+  );
+}
 
 export function Crown({ className = "" }: { className?: string }) {
   return (
