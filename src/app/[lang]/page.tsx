@@ -19,10 +19,24 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
 
   return (
     <>
-      {/* Header + hero, with the crowning image framed beside the title */}
-      <section className="texture-dark relative overflow-hidden bg-plum-950 text-cream">
+      {/* Header + hero, with the crowning image as a soft background */}
+      <section className="relative overflow-hidden bg-plum-950 text-cream">
+        <Image
+          src={coroacao}
+          alt={c.images.crowning}
+          fill
+          priority
+          placeholder="blur"
+          sizes="100vw"
+          className="object-cover object-[50%_25%] opacity-60"
+        />
+        {/* Soft plum veil so the image stays delicate and the text readable */}
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(201,164,106,0.18),transparent_60%)]"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-plum-950/50 via-plum-950/35 to-plum-950/85"
+          aria-hidden="true"
+        />
+        <div
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(28,15,29,0.6)_100%)]"
           aria-hidden="true"
         />
 
@@ -40,34 +54,24 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </a>
         </header>
 
-        <div className="relative mx-auto grid max-w-6xl items-center gap-16 px-4 pb-24 pt-10 sm:px-8 sm:pb-32 lg:grid-cols-[1.15fr_1fr] lg:pt-16">
-          <div className="text-center lg:text-left">
-            <Eyebrow className="leading-relaxed">{c.hero.eyebrow}</Eyebrow>
-            <Crown className="mx-auto mt-10 h-7 w-12 text-gold lg:mx-0" />
-            <h1 className="mt-6 font-serif text-6xl font-medium leading-none tracking-tight text-cream drop-shadow-lg sm:text-8xl">
-              {c.hero.title}
-            </h1>
-            <p className="mx-auto mt-8 max-w-2xl font-serif text-2xl italic leading-snug text-gold-light sm:text-3xl lg:mx-0">
-              {c.hero.subtitle}
-            </p>
-            <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-cream/80 sm:text-lg lg:mx-0">
-              {c.hero.body}
-            </p>
-            <div className="mt-12">
-              <CtaButton href={CHECKOUT_URL}>{c.hero.cta}</CtaButton>
-            </div>
-            <p className="mt-6 text-xs uppercase tracking-[0.3em] text-gold/80">
-              {c.hero.note}
-            </p>
+        <div className="relative mx-auto max-w-3xl px-4 pb-28 pt-12 text-center sm:px-8 sm:pb-36 sm:pt-20">
+          <Eyebrow className="leading-relaxed">{c.hero.eyebrow}</Eyebrow>
+          <Crown className="mx-auto mt-10 h-7 w-12 text-gold" />
+          <h1 className="mt-6 font-serif text-6xl font-medium leading-none tracking-tight text-cream drop-shadow-lg sm:text-8xl">
+            {c.hero.title}
+          </h1>
+          <p className="mx-auto mt-8 max-w-2xl font-serif text-2xl italic leading-snug text-gold-light drop-shadow sm:text-3xl">
+            {c.hero.subtitle}
+          </p>
+          <p className="mx-auto mt-8 max-w-xl text-base leading-relaxed text-cream/85 sm:text-lg">
+            {c.hero.body}
+          </p>
+          <div className="mt-12">
+            <CtaButton href={CHECKOUT_URL}>{c.hero.cta}</CtaButton>
           </div>
-          <FramedImage
-            src={coroacao}
-            alt={c.images.crowning}
-            priority
-            className="mx-auto w-full max-w-sm lg:max-w-md"
-            imageClassName="aspect-[4/5] object-[50%_20%]"
-            sizes="(min-width: 1024px) 448px, 384px"
-          />
+          <p className="mt-6 text-xs uppercase tracking-[0.3em] text-gold/80">
+            {c.hero.note}
+          </p>
         </div>
       </section>
 
