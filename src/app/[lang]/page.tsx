@@ -7,9 +7,9 @@ import {
   Divider,
   Eyebrow,
   FramedImage,
+  LineIcon,
 } from "@/components/ui";
 import batalha from "../../../public/images/batalha.jpg";
-import biblia from "../../../public/images/biblia.jpg";
 import capela from "../../../public/images/capela.jpg";
 import coroacao from "../../../public/images/coroacao.jpg";
 import janela from "../../../public/images/janela.jpg";
@@ -197,83 +197,81 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
-      {/* Day 1 preview */}
-      <section className="bg-cream-dark px-4 py-24 sm:px-8 sm:py-32">
-        <article className="mx-auto max-w-2xl overflow-hidden rounded-sm bg-cream shadow-xl shadow-plum-900/5">
-          <Image
-            src={biblia}
-            alt={c.images.bible}
-            placeholder="blur"
-            sizes="(min-width: 672px) 672px, 100vw"
-            className="aspect-[16/9] w-full object-cover"
-          />
-          <div className="px-6 py-14 sm:px-14 sm:py-20">
-          <header className="text-center">
-            <Eyebrow>{c.dayOne.eyebrow}</Eyebrow>
-            <h2 className="mt-6 font-serif text-4xl font-medium leading-tight text-plum-900 sm:text-5xl">
-              {c.dayOne.title}
+      {/* What's included */}
+      <section className="bg-plum-900 px-4 py-24 text-cream sm:px-8 sm:py-32">
+        <div className="mx-auto max-w-6xl">
+          <div className="text-center">
+            <Eyebrow>{c.included.eyebrow}</Eyebrow>
+            <h2 className="mt-6 font-serif text-4xl font-medium leading-tight sm:text-5xl">
+              {c.included.title}
             </h2>
-            <p className="mt-4 text-sm italic text-plum-700">
-              {c.dayOne.reading}
-            </p>
-            <Divider className="mt-10" />
-          </header>
-
-          <div className="mt-10 space-y-5 text-lg leading-relaxed text-ink">
-            <h3 className="font-serif text-3xl font-medium text-plum-900">
-              {c.dayOne.openingHeading}
-            </h3>
-            {c.dayOne.opening.map((p, i) => (
-              <p
-                key={i}
-                className={i < 2 ? "font-serif text-2xl italic text-plum-800" : ""}
+          </div>
+          <ul className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {c.included.items.map((item) => (
+              <li
+                key={item.title}
+                className="flex flex-col items-center rounded-sm border border-gold/25 bg-plum-950/40 px-6 py-10 text-center"
               >
-                {p}
-              </p>
+                <span className="flex size-16 items-center justify-center rounded-full border border-gold/40 text-gold">
+                  <LineIcon name={item.icon} className="size-7" />
+                </span>
+                <h3 className="mt-6 font-serif text-2xl leading-snug text-cream">
+                  {item.title}
+                </h3>
+                <p className="mt-3 leading-relaxed text-cream/70">
+                  {item.text}
+                </p>
+              </li>
             ))}
+          </ul>
+          <div className="mt-14 text-center">
+            <CtaButton href={CHECKOUT_URL}>{c.hero.cta}</CtaButton>
+          </div>
+        </div>
+      </section>
 
-            <h3 className="pt-6 font-serif text-3xl font-medium text-plum-900">
-              {c.dayOne.truthHeading}
-            </h3>
-            {c.dayOne.truth.map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
+      {/* Testimonials from the first mentees */}
+      <section className="bg-cream-dark px-4 py-24 sm:px-8 sm:py-32">
+        <div className="mx-auto max-w-5xl">
+          <div className="text-center">
+            <Eyebrow>{c.testimonials.eyebrow}</Eyebrow>
+            <h2 className="mt-6 font-serif text-4xl font-medium leading-tight text-plum-900 sm:text-5xl">
+              {c.testimonials.title}
+            </h2>
+            <Divider className="mt-10" />
           </div>
 
-          <div className="mt-12 rounded-sm border border-gold/30 bg-white/70 px-6 py-8 sm:px-8">
-            <h3 className="font-serif text-2xl font-medium text-plum-900">
-              {c.dayOne.reflectHeading}
-            </h3>
-            <p className="mt-2 text-ink-soft">{c.dayOne.reflectIntro}</p>
-            <ol className="mt-5 space-y-3">
-              {c.dayOne.questions.map((q, i) => (
-                <li key={q} className="flex gap-4 leading-relaxed">
-                  <span className="font-serif text-xl text-gold">{i + 1}.</span>
-                  <span>{q}</span>
+          {c.testimonials.items.length === 0 ? (
+            <p className="mx-auto mt-10 max-w-xl text-center font-serif text-2xl italic leading-snug text-plum-800">
+              {c.testimonials.empty}
+            </p>
+          ) : (
+            <ul className="mt-14 grid gap-6 md:grid-cols-2">
+              {c.testimonials.items.map((t) => (
+                <li
+                  key={t.name + t.quote.slice(0, 20)}
+                  className="flex flex-col rounded-sm border border-gold/30 bg-cream px-7 py-9 sm:px-10"
+                >
+                  <span
+                    className="font-serif text-6xl leading-none text-gold"
+                    aria-hidden="true"
+                  >
+                    “
+                  </span>
+                  <blockquote className="mt-2 flex-1 font-serif text-xl italic leading-relaxed text-ink sm:text-2xl">
+                    {t.quote}
+                  </blockquote>
+                  <p className="mt-6 text-sm font-medium uppercase tracking-[0.2em] text-plum-800">
+                    {t.name}
+                  </p>
+                  {t.detail && (
+                    <p className="mt-1 text-sm text-ink-soft">{t.detail}</p>
+                  )}
                 </li>
               ))}
-            </ol>
-          </div>
-
-          <div className="mt-8 px-1">
-            <h3 className="font-serif text-2xl font-medium text-plum-900">
-              {c.dayOne.practiceHeading}
-            </h3>
-            {c.dayOne.practice.map((p) => (
-              <p key={p} className="mt-3 leading-relaxed">
-                {p}
-              </p>
-            ))}
-          </div>
-
-          <div className="mt-12 rounded-sm bg-plum-900 px-6 py-10 text-center sm:px-10">
-            <Eyebrow>{c.dayOne.declarationHeading}</Eyebrow>
-            <p className="mt-5 font-serif text-2xl italic leading-snug text-cream sm:text-3xl">
-              “{c.dayOne.declaration}”
-            </p>
-          </div>
-          </div>
-        </article>
+            </ul>
+          )}
+        </div>
       </section>
 
       {/* Final call to action */}

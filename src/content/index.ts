@@ -28,13 +28,21 @@ export type Stage = {
   days: Day[];
 };
 
+// A testimonial from a mentee. Only publish real ones, with her permission.
+export type Testimonial = {
+  quote: string;
+  name: string;
+  detail?: string;
+};
+
+export type IncludedIcon = "book" | "sunrise" | "audio" | "video";
+
 export type Content = {
   meta: { title: string; description: string };
   brand: string;
   langSwitch: { label: string; href: string };
   images: {
     window: string;
-    bible: string;
     crowning: string;
     battle: string;
     chapel: string;
@@ -72,21 +80,16 @@ export type Content = {
     stages: Stage[];
     closing: string;
   };
-  dayOne: {
+  included: {
     eyebrow: string;
     title: string;
-    reading: string;
-    openingHeading: string;
-    opening: string[];
-    truthHeading: string;
-    truth: string[];
-    reflectHeading: string;
-    reflectIntro: string;
-    questions: string[];
-    practiceHeading: string;
-    practice: string[];
-    declarationHeading: string;
-    declaration: string;
+    items: { icon: IncludedIcon; title: string; text: string }[];
+  };
+  testimonials: {
+    eyebrow: string;
+    title: string;
+    empty: string;
+    items: Testimonial[];
   };
   final: {
     eyebrow: string;

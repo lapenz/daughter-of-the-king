@@ -10,7 +10,6 @@ export const en: Content = {
   langSwitch: { label: "Português", href: "/pt" },
   images: {
     window: "A woman looking out of a window, deep in thought",
-    bible: "Hands holding a Bible",
     crowning: "Jesus placing a crown on the head of a woman in armor",
     battle: "A woman in armor kneeling, hands clasped with Jesus on a battlefield",
     chapel: "A woman in armor kneeling in prayer in a chapel, with Jesus beside her",
@@ -285,49 +284,40 @@ export const en: Content = {
       },
     ],
   },
-  dayOne: {
-    eyebrow: "A taste of the journey · Day 1",
-    title: "Self-knowledge: discovering who you are in God",
-    reading: "Bible reading: Psalm 139:23-24",
-    openingHeading: "The awakening",
-    opening: [
-      "Who are you when no one is watching?",
-      "Who are you when you don't have to please, impress or prove anything to anyone?",
-      "These questions may seem simple, but for many women, answering them takes a courage they never imagined they would need.",
-      "Because there is a difference between knowing your name and knowing your identity.",
-      "Throughout life, we are given countless labels. Some came from family, others from relationships, rejections, comparisons and the experiences that marked us.",
-      "And without realizing it, we begin to build our identity from the way we were treated.",
-      "If we were constantly criticized, we may grow up believing we are never good enough. If we were rejected, we may develop a fear of being abandoned. If we learned that expressing our feelings caused conflict, we may have become women who silence our own voice to keep the peace.",
-      "But there is a question we need to ask: how much of the woman you are today reflects your true essence, and how much reflects what you had to learn in order to survive?",
-      "Self-knowledge is not only discovering your qualities, preferences or skills. It is also having the courage to recognize the beliefs, fears and behaviors that shape your life.",
-      "And this process can be lived in the presence of God.",
-      "In Psalm 139, David invites the Lord to search his heart and his thoughts, allowing what is hidden to be brought into the light.",
-      "That is the invitation of our first day. Not to look inward with condemnation, but with truth, courage and compassion.",
-      "You don't need to find every answer today. The first step is to start listening to yourself again.",
+  included: {
+    eyebrow: "What's included",
+    title: "Everything that comes with your journey",
+    items: [
+      {
+        icon: "book",
+        title: "Exclusive e-book",
+        text: "Monique's own story, written by her, to walk alongside you.",
+      },
+      {
+        icon: "sunrise",
+        title: "30 days of devotionals",
+        text: "One devotional a day, from the awakening to the new beginning.",
+      },
+      {
+        icon: "audio",
+        title: "30 prayers, written and in audio",
+        text: "A prayer for each day, to read or listen to wherever you are.",
+      },
+      {
+        icon: "video",
+        title: "Weekly live meetings",
+        text: "One 1-hour online meeting every week.",
+      },
     ],
-    truthHeading: "The truth that transforms",
-    truth: [
-      "God knows your whole story.",
-      "He knows what you share with the world, and also the parts you haven't yet been able to put into words.",
-      "Your identity doesn't have to be built on the rejection you suffered, the mistakes you made, or the expectations others placed on you.",
-      "In Christ, you can learn a new way of seeing yourself.",
-      "And perhaps this is where your rebuilding begins: no longer asking only what people think of you, and starting to seek, in the Scriptures, who God says you are.",
-    ],
-    reflectHeading: "To reflect on",
-    reflectIntro: "Set aside a few minutes to write:",
-    questions: [
-      "Who do I believe I am today?",
-      "Which of my traits were born from fear, rejection or the need to please?",
-      "If I weren't afraid of what people think, what would I do differently?",
-    ],
-    practiceHeading: "Today's practice",
-    practice: [
-      "Today, write down five traits you recognize in yourself that don't depend on appearance, money, relationships or achievements.",
-      "Don't write who you would like to be. Start by recognizing who you already are.",
-    ],
-    declarationHeading: "Today's declaration",
-    declaration:
-      "I am not just the result of what I have lived through. My story has value, my voice matters, and I can build a new beginning with God.",
+  },
+  testimonials: {
+    eyebrow: "First mentees",
+    title: "Stories God is rewriting",
+    empty:
+      "Our first mentees are walking through the journey right now. Their stories will appear here soon.",
+    // To publish a testimonial, add an item like this:
+    // { quote: "Testimonial text", name: "Name", detail: "First group mentee" },
+    items: [],
   },
   final: {
     eyebrow: "The invitation",

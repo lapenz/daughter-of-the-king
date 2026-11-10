@@ -55,6 +55,58 @@ export function Crown({ className = "" }: { className?: string }) {
   );
 }
 
+const iconPaths: Record<string, ReactNode> = {
+  book: (
+    <>
+      <path d="M4 5.5C4 4.7 4.7 4 5.5 4H11v15H5.5A1.5 1.5 0 0 1 4 17.5Z" />
+      <path d="M20 5.5c0-.8-.7-1.5-1.5-1.5H13v15h5.5c.8 0 1.5-.7 1.5-1.5Z" />
+      <path d="M11 19h2" />
+    </>
+  ),
+  sunrise: (
+    <>
+      <path d="M3 18h18M6 18a6 6 0 0 1 12 0" />
+      <path d="M12 4v4M4.9 9.9l1.4 1.4M19.1 9.9l-1.4 1.4M2 14h2M20 14h2" />
+    </>
+  ),
+  audio: (
+    <>
+      <path d="M4 15v-3a8 8 0 0 1 16 0v3" />
+      <rect x="3" y="14" width="4" height="6" rx="1.5" />
+      <rect x="17" y="14" width="4" height="6" rx="1.5" />
+    </>
+  ),
+  video: (
+    <>
+      <rect x="2.5" y="6" width="13" height="12" rx="2" />
+      <path d="m15.5 10.5 6-3.5v10l-6-3.5" />
+    </>
+  ),
+};
+
+export function LineIcon({
+  name,
+  className = "",
+}: {
+  name: string;
+  className?: string;
+}) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      {iconPaths[name]}
+    </svg>
+  );
+}
+
 export function Eyebrow({
   children,
   className = "",

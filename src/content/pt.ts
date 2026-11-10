@@ -10,7 +10,6 @@ export const pt: Content = {
   langSwitch: { label: "English", href: "/en" },
   images: {
     window: "Mulher olhando pela janela, pensativa",
-    bible: "Mãos segurando uma Bíblia",
     crowning: "Jesus coloca uma coroa sobre a cabeça de uma mulher de armadura",
     battle: "Uma mulher de armadura ajoelhada, de mãos dadas com Jesus no campo de batalha",
     chapel: "Uma mulher de armadura ajoelhada em oração numa capela, com Jesus ao seu lado",
@@ -288,49 +287,40 @@ export const pt: Content = {
       },
     ],
   },
-  dayOne: {
-    eyebrow: "Um gostinho da jornada · Dia 1",
-    title: "Autoconhecimento: descobrindo quem você é em Deus",
-    reading: "Leitura bíblica: Salmos 139:23-24",
-    openingHeading: "O despertar",
-    opening: [
-      "Quem é você quando ninguém está olhando?",
-      "Quem é você quando não precisa agradar, impressionar ou provar absolutamente nada para ninguém?",
-      "Talvez essas perguntas pareçam simples, mas, para muitas mulheres, respondê-las exige uma coragem que nunca imaginaram precisar.",
-      "Porque existe uma diferença entre saber o próprio nome e conhecer a própria identidade.",
-      "Durante a vida, recebemos inúmeros rótulos. Alguns vieram da família, outros dos relacionamentos, das rejeições, das comparações e das experiências que nos marcaram.",
-      "E, sem perceber, começamos a construir nossa identidade a partir da maneira como fomos tratadas.",
-      "Se fomos criticadas constantemente, podemos crescer acreditando que nunca somos boas o suficiente. Se fomos rejeitadas, podemos desenvolver o medo de sermos abandonadas. Se aprendemos que expressar sentimentos causava conflitos, talvez tenhamos nos tornado mulheres que silenciam a própria voz para preservar a paz.",
-      "Mas existe uma pergunta que precisamos fazer: quanto da mulher que você é hoje representa sua verdadeira essência e quanto representa aquilo que você precisou aprender para sobreviver?",
-      "O autoconhecimento não é apenas descobrir suas qualidades, preferências ou habilidades. É também ter coragem de reconhecer as crenças, os medos e os comportamentos que influenciam sua vida.",
-      "E esse processo pode ser vivido na presença de Deus.",
-      "No Salmo 139, Davi convida o Senhor a examinar seu coração e seus pensamentos, permitindo que aquilo que está escondido seja trazido à consciência.",
-      "Essa é a proposta do nosso primeiro dia. Não olhar para dentro com condenação, mas com verdade, coragem e compaixão.",
-      "Você não precisa descobrir todas as respostas hoje. O primeiro passo é começar a se ouvir novamente.",
+  included: {
+    eyebrow: "O que está incluso",
+    title: "Tudo o que acompanha a sua jornada",
+    items: [
+      {
+        icon: "book",
+        title: "E-book exclusivo",
+        text: "A história da Monique, escrita por ela, para caminhar com você.",
+      },
+      {
+        icon: "sunrise",
+        title: "30 dias de devocional",
+        text: "Um devocional por dia, do despertar ao novo começo.",
+      },
+      {
+        icon: "audio",
+        title: "30 orações escritas e em áudio",
+        text: "Uma oração para cada dia, para ler ou ouvir onde estiver.",
+      },
+      {
+        icon: "video",
+        title: "Encontros semanais ao vivo",
+        text: "Um encontro por semana, de 1 hora, online.",
+      },
     ],
-    truthHeading: "A verdade que transforma",
-    truth: [
-      "Deus conhece a sua história por inteiro.",
-      "Ele conhece aquilo que você compartilha com o mundo e também as partes que ainda não conseguiu colocar em palavras.",
-      "Sua identidade não precisa ser construída sobre a rejeição que sofreu, sobre os erros que cometeu ou sobre expectativas que outras pessoas depositaram em você.",
-      "Em Cristo, você pode aprender uma nova maneira de se enxergar.",
-      "E talvez esse seja o início da sua reconstrução: deixar de perguntar apenas o que as pessoas pensam sobre você e começar a buscar, nas Escrituras, quem Deus diz que você é.",
-    ],
-    reflectHeading: "Para refletir",
-    reflectIntro: "Reserve alguns minutos para escrever:",
-    questions: [
-      "Quem eu acredito ser hoje?",
-      "Quais características minhas nasceram do medo, da rejeição ou da necessidade de agradar?",
-      "Se eu não tivesse medo da opinião das pessoas, o que faria de maneira diferente?",
-    ],
-    practiceHeading: "Prática do dia",
-    practice: [
-      "Hoje, escreva cinco características que você reconhece em si mesma e que não dependem de aparência, dinheiro, relacionamentos ou conquistas.",
-      "Não escreva o que você gostaria de ser. Comece reconhecendo quem você já é.",
-    ],
-    declarationHeading: "Declaração do dia",
-    declaration:
-      "Eu não sou apenas o resultado daquilo que vivi. Minha história tem valor, minha voz importa e posso construir um novo começo com Deus.",
+  },
+  testimonials: {
+    eyebrow: "Primeiras mentoradas",
+    title: "Histórias que Deus está reescrevendo",
+    empty:
+      "As primeiras mentoradas estão vivendo a jornada agora. Em breve, os relatos delas aparecerão aqui.",
+    // Para publicar um depoimento, acrescente um item assim:
+    // { quote: "Texto do depoimento", name: "Nome", detail: "Mentorada da 1ª turma" },
+    items: [],
   },
   final: {
     eyebrow: "O convite",
