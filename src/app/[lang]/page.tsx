@@ -36,7 +36,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           aria-hidden="true"
         />
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(28,15,29,0.6)_100%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,color-mix(in_srgb,var(--color-plum-950)_60%,transparent)_100%)]"
           aria-hidden="true"
         />
 
@@ -288,7 +288,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         className="texture-dark relative overflow-hidden bg-plum-950 px-4 py-28 text-center text-cream sm:px-8 sm:py-36"
       >
         <div
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,rgba(201,164,106,0.16),transparent_60%)]"
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,color-mix(in_srgb,var(--color-gold)_16%,transparent),transparent_60%)]"
           aria-hidden="true"
         />
         <div className="relative mx-auto max-w-2xl">
