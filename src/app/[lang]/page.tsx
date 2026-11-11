@@ -10,7 +10,7 @@ import {
   LineIcon,
 } from "@/components/ui";
 import coroacao from "../../../public/images/coroacao.jpg";
-import perdida from "../../../public/images/perdida.jpg";
+import meninaSombra from "../../../public/images/menina-sombra.jpg";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -79,10 +79,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <section className="texture-light bg-cream px-4 py-24 sm:px-8 sm:py-32">
         <div className="mx-auto grid max-w-5xl items-center gap-12 md:grid-cols-2 md:gap-16">
           <FramedImage
-            src={perdida}
+            src={meninaSombra}
             alt={c.images.window}
             className="mx-auto w-full max-w-sm md:max-w-none"
-            imageClassName="aspect-[4/5]"
+            imageClassName="aspect-[3/5] object-[50%_45%]"
             sizes="(min-width: 768px) 40vw, 90vw"
           />
           <div className="text-center md:text-left">
@@ -279,6 +279,39 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               ))}
             </ul>
           )}
+        </div>
+      </section>
+
+      {/* Frequently asked questions */}
+      <section className="texture-light bg-cream px-4 py-24 sm:px-8 sm:py-32">
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <Eyebrow>{c.faq.eyebrow}</Eyebrow>
+            <h2 className="mt-6 font-serif text-4xl font-medium leading-tight text-plum-900 sm:text-5xl">
+              {c.faq.title}
+            </h2>
+            <Divider className="mt-8" />
+          </div>
+          <div className="mt-12 divide-y divide-gold/25 border-y border-gold/25">
+            {c.faq.items.map((item) => (
+              <details key={item.q} className="group">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 py-6 [&::-webkit-details-marker]:hidden">
+                  <span className="font-serif text-xl text-plum-900 sm:text-2xl">
+                    {item.q}
+                  </span>
+                  <span
+                    className="shrink-0 text-2xl leading-none text-gold transition group-open:rotate-45"
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="pb-6 pr-10 text-lg leading-relaxed text-ink-soft">
+                  {item.a}
+                </p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

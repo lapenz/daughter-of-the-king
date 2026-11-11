@@ -9,7 +9,7 @@ export const en: Content = {
   brand: "Daughter of the King",
   langSwitch: { label: "Português", href: "/pt" },
   images: {
-    window: "A woman sitting alone, seen from behind, looking at a misty horizon",
+    window: "A little girl looks at her shadow on the wall, which has the shape of a woman",
     crowning: "Jesus placing a crown on the head of a woman in armor",
   },
   hero: {
@@ -323,6 +323,36 @@ export const en: Content = {
     // To publish a testimonial, add an item like this:
     // { quote: "Testimonial text", name: "Name", detail: "First group mentee" },
     items: [],
+  },
+  faq: {
+    eyebrow: "Questions",
+    title: "Frequently asked questions",
+    items: [
+      {
+        q: "What is included in the mentorship?",
+        a: "An e-book with Monique's story, 30 days of devotionals, 30 prayers written and in audio, and one 1-hour online meeting every week.",
+      },
+      {
+        q: "How long is the journey?",
+        a: "Thirty days, divided into five stages: the awakening, the invisible wounds, the renewal, the rebuilding and the new beginning.",
+      },
+      {
+        q: "How do the weekly meetings work?",
+        a: "Once a week there is a live, 1-hour online meeting.",
+      },
+      {
+        q: "Do I need to follow the days in order?",
+        a: "Yes. The journey was designed as a process, and each stage prepares the next.",
+      },
+      {
+        q: "Do I need a Bible?",
+        a: "Each day points to a Bible passage. You can read it in your own Bible or in an app, whichever you prefer.",
+      },
+      {
+        q: "Is it for women who are new to faith?",
+        a: "Yes. The mentorship is for every woman who wants to rediscover who God says she is, wherever she is in her walk.",
+      },
+    ],
   },
   final: {
     eyebrow: "The invitation",

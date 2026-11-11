@@ -1,15 +1,8 @@
-# Créditos das fotos
+# Créditos das imagens
 
-## Fotos do Unsplash
-
-Sob a Licença Unsplash (uso comercial gratuito, sem atribuição obrigatória).
-
-| Arquivo | Onde aparece | Foto |
-| --- | --- | --- |
-| perdida.jpg | "Você se identifica?" | https://unsplash.com/photos/RTVIvk6-nNA |
-
-## Imagens enviadas pela Monique
+Todas as imagens do site foram enviadas pela Monique.
 
 | Arquivo | Onde aparece |
 | --- | --- |
 | coroacao.jpg | Fundo da entrada |
+| menina-sombra.jpg | "Em algum lugar do caminho, você se perdeu de si mesma." |

@@ -90,6 +90,11 @@ export type Content = {
     empty: string;
     items: Testimonial[];
   };
+  faq: {
+    eyebrow: string;
+    title: string;
+    items: { q: string; a: string }[];
+  };
   final: {
     eyebrow: string;
     title: string;

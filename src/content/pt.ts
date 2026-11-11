@@ -9,7 +9,7 @@ export const pt: Content = {
   brand: "Filha do Rei",
   langSwitch: { label: "English", href: "/en" },
   images: {
-    window: "Mulher sentada sozinha, de costas, olhando um horizonte coberto de névoa",
+    window: "Uma menina olha para a própria sombra na parede, que tem a forma de uma mulher",
     crowning: "Jesus coloca uma coroa sobre a cabeça de uma mulher de armadura",
   },
   hero: {
@@ -326,6 +326,36 @@ export const pt: Content = {
     // Para publicar um depoimento, acrescente um item assim:
     // { quote: "Texto do depoimento", name: "Nome", detail: "Mentorada da 1ª turma" },
     items: [],
+  },
+  faq: {
+    eyebrow: "Dúvidas",
+    title: "Perguntas frequentes",
+    items: [
+      {
+        q: "O que está incluso na mentoria?",
+        a: "Um e-book com a história da Monique, 30 dias de devocional, 30 orações escritas e em áudio e um encontro online por semana, de 1 hora.",
+      },
+      {
+        q: "Quanto tempo dura a jornada?",
+        a: "São 30 dias, divididos em cinco etapas: o despertar, as feridas invisíveis, a renovação, a reconstrução e o novo começo.",
+      },
+      {
+        q: "Como funcionam os encontros semanais?",
+        a: "Uma vez por semana acontece um encontro online, ao vivo, de 1 hora.",
+      },
+      {
+        q: "Preciso seguir a ordem dos dias?",
+        a: "Sim. A jornada foi pensada como um processo, e cada etapa prepara a próxima.",
+      },
+      {
+        q: "Preciso ter uma Bíblia?",
+        a: "Cada dia traz uma passagem bíblica indicada. Você pode lê-la na sua Bíblia ou em um aplicativo, como preferir.",
+      },
+      {
+        q: "Serve para quem está começando na fé?",
+        a: "Sim. A mentoria é para toda mulher que deseja se reencontrar com quem Deus diz que ela é, em qualquer fase da caminhada.",
+      },
+    ],
   },
   final: {
     eyebrow: "O convite",
